@@ -13,6 +13,10 @@ public class Game {
     }
 
     public World generateNextWorld() {
-        return currentWorld;
+        return new World(new boolean[][]{
+                new boolean[]{false, false, false},
+                new boolean[]{false, false, false},
+                new boolean[]{false, false, false}
+        });
     }
 }
