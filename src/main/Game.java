@@ -8,4 +8,8 @@ public class Game {
     public boolean run() {
         return true;
     }
+
+    public World generateNextWorld() {
+        return new World();
+    }
 }
