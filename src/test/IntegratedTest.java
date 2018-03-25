@@ -37,4 +37,20 @@ public class IntegratedTest {
 
         Assert.assertNotNull(actual);
     }
+
+    @Test
+    public void givenCustomDeadWorldReturnNextWorld() {
+        World expected = new World(new boolean[][]{
+                new boolean[]{false, false, false},
+                new boolean[]{false, false, false},
+                new boolean[]{false, false, false}
+        });
+
+        Game game = new Game(expected);
+
+        World actual = game.generateNextWorld();
+
+        Assert.assertNotNull(actual);
+        Assert.assertTrue(actual.equals2(expected));
+    }
 }
