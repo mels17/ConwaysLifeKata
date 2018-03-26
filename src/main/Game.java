@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Arrays;
+
 public class Game {
 
     private World currentWorld;
@@ -10,20 +12,25 @@ public class Game {
         this.printer = printer;
     }
 
-    public World[] run(int numGenerations) {
+    public World[] getNextWorlds(int numGenerations) {
         World[] worlds = new World[numGenerations];
-        for(int i = 0; i < numGenerations; i++) {
+        for (int i = 0; i < numGenerations; i++) {
             World nextWorld = currentWorld.getNextWorld();
             worlds[i] = nextWorld;
             currentWorld = nextWorld;
         }
+
         return worlds;
     }
 
-    public void display(World[] worlds) throws InterruptedException {
-        for (World world: worlds) {
-            printer.print(world);
-            Thread.sleep(500);
-        }
+    public void run(int numGenerations) {
+        Arrays.stream(getNextWorlds(numGenerations)).forEach(world -> {
+            try {
+                printer.print(world);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        });
     }
 }

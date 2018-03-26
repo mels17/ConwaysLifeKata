@@ -2,7 +2,7 @@ package main;
 
 public class Printer {
 
-    public void print(World worldObj) {
+    public void print(World worldObj) throws InterruptedException {
         boolean[][] world = worldObj.getWorld();
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -11,7 +11,7 @@ public class Printer {
                 if (world[y][x]) {
                     stringBuilder.append("x");
                 } else {
-                    stringBuilder.append("o");
+                    stringBuilder.append(".");
                 }
 
                 if (x == world[y].length - 1) {
@@ -21,5 +21,6 @@ public class Printer {
         }
 
         System.out.println(stringBuilder.toString());
+        Thread.sleep(500);
     }
 }
