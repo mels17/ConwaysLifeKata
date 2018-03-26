@@ -174,6 +174,11 @@ public class World {
                 if (world[y][x] && (getNumberOfLivingNeighbours(x, y) == 2 || getNumberOfLivingNeighbours(x, y) == 3)) {
                     nextWorld.getWorld()[y][x] = true;
                 }
+
+                if (!world[y][x] && (getNumberOfLivingNeighbours(x, y) == 3 )) {
+                    nextWorld.getWorld()[y][x] = true;
+                }
+
             }
         }
 
