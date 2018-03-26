@@ -136,45 +136,7 @@ public class WorldClassTest {
                 new boolean[]{true, true, true},
                 new boolean[]{false, false, false}
         });
-
         World actual = input.getNextWorld();
-
         Assert.assertEquals(expected, actual);
     }
-
-    @Test
-    public void givenNormallyPopulatedDeadCellWithThreeLivingNeighboursReturnLivingCell2() {
-        World input = new World(new boolean[][]{
-                new boolean[]{true, true, true},
-                new boolean[]{true, true, true},
-                new boolean[]{true, true, true}
-        });
-
-        World expected = new World(new boolean[3][3]);
-
-        World actual = input.getNextWorld();
-
-        Assert.assertEquals(expected, actual);
-    }
-
-//    @Test
-//    public void givenNormallyPopulatedDeadCellWithThreeLivingNeighboursReturnLivingCell() {
-//        World input = new World(new boolean[][]{
-//                new boolean[]{true,false, true, false},
-//                new boolean[]{true, false, false},
-//                new boolean[]{false, true, false}
-//        });
-//
-//        World expected = new World(new boolean[][]{
-//                new boolean[]{false, false, false},
-//                new boolean[]{true, true, true},
-//                new boolean[]{false, false, false}
-//        });
-//
-//        Game game = new Game(input);
-//
-//        World actual = game.generateNextWorld();
-//
-//        Assert.assertEquals(expected, actual);
-//    }
 }
