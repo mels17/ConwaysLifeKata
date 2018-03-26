@@ -120,25 +120,25 @@ public class IntegratedTest {
         Assert.assertTrue(actual.equals2(expected));
     }
 
-//    @Test
-//    public void givenCenterLivingWithFourLivingNeighboursWorldReturnNextWorld() {
-//        World input = new World(new boolean[][]{
-//                new boolean[]{false, false, true},
-//                new boolean[]{true, true, true},
-//                new boolean[]{false, true, false}
-//        });
-//
-//        World expected = new World(new boolean[][]{
-//                new boolean[]{false, false, false},
-//                new boolean[]{false, false, true},
-//                new boolean[]{false, false, false}
-//        });
-//
-//        Game game = new Game(input);
-//
-//        World actual = game.generateNextWorld();
-//
-//        Assert.assertNotNull(actual);
-//        Assert.assertTrue(actual.equals2(expected));
-//    }
+    @Test
+    public void givenCenterLivingWithFourLivingNeighboursWorldReturnNextWorld() {
+        World input = new World(new boolean[][]{
+                new boolean[]{false, true, false},
+                new boolean[]{true, true, true},
+                new boolean[]{false, true, false}
+        });
+
+        World expected = new World(new boolean[][]{
+                new boolean[]{false, true, false},
+                new boolean[]{false, false, false},
+                new boolean[]{false, true, false}
+        });
+
+        Game game = new Game(input);
+
+        World actual = game.generateNextWorld();
+
+        Assert.assertNotNull(actual);
+        Assert.assertTrue(actual.equals2(expected));
+    }
 }

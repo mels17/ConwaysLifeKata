@@ -171,7 +171,7 @@ public class World {
 
         for (int y = 0; y < world.length; y++) {
             for (int x = 0; x < world.length; x++) {
-                if (world[y][x] && getNumberOfLivingNeighbours(x, y) == 2) {
+                if (world[y][x] && (getNumberOfLivingNeighbours(x, y) == 2 || getNumberOfLivingNeighbours(x, y) == 3)) {
                     nextWorld.getWorld()[y][x] = true;
                 }
             }
