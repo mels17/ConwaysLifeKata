@@ -8,13 +8,10 @@ public class Game {
         this.currentWorld = world;
     }
 
-//    public boolean run() {
+//    public World run() {
 //        while(world is not dead) {
 //            world = generateNextWorld();
 //        }
 //    }
 
-    public World generateNextWorld() {
-        return this.currentWorld.getNextWorld();
-    }
 }

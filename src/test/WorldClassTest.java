@@ -1,6 +1,5 @@
 package test;
 
-import main.Game;
 import main.World;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,11 +9,7 @@ public class WorldClassTest {
     @Test
     public void givenDeadWorldReturnDeadWorld() {
         World expected = new World(new boolean[3][3]);
-
-        Game game = new Game(expected);
-
-        World actual = game.generateNextWorld();
-
+        World actual = expected.getNextWorld();
         Assert.assertEquals(expected, actual);
     }
 
@@ -22,9 +17,7 @@ public class WorldClassTest {
     public void givenAnySizeDeadWorldReturnSameSizeDeadWorld() {
         World expected = new World(new boolean[4][4]);
 
-        Game game = new Game(expected);
-
-        World actual = game.generateNextWorld();
+        World actual = expected.getNextWorld();
 
         Assert.assertEquals(expected, actual);
     }
@@ -33,9 +26,8 @@ public class WorldClassTest {
     public void givenAnyRectangleDeadWorldReturnSameRectangleDeadWorld() {
         World expected = new World(new boolean[15][4]);
 
-        Game game = new Game(expected);
 
-        World actual = game.generateNextWorld();
+        World actual = expected.getNextWorld();
 
         Assert.assertEquals(expected, actual);
     }
@@ -50,9 +42,8 @@ public class WorldClassTest {
 
         World expected = new World(new boolean[3][3]);
 
-        Game game = new Game(input);
 
-        World actual = game.generateNextWorld();
+        World actual = input.getNextWorld();
 
         Assert.assertEquals(expected, actual);
     }
@@ -67,9 +58,8 @@ public class WorldClassTest {
 
         World expected = new World(new boolean[3][3]);
 
-        Game game = new Game(input);
 
-        World actual = game.generateNextWorld();
+        World actual = input.getNextWorld();
 
         Assert.assertEquals(expected, actual);
     }
@@ -88,9 +78,8 @@ public class WorldClassTest {
                 new boolean[]{true, true, true}
         });
 
-        Game game = new Game(input);
 
-        World actual = game.generateNextWorld();
+        World actual = input.getNextWorld();
 
         Assert.assertEquals(expected, actual);
     }
@@ -109,9 +98,8 @@ public class WorldClassTest {
                 new boolean[]{true, true, true}
         });
 
-        Game game = new Game(input);
 
-        World actual = game.generateNextWorld();
+        World actual = input.getNextWorld();
 
         Assert.assertEquals(expected, actual);
     }
@@ -130,9 +118,7 @@ public class WorldClassTest {
                 new boolean[]{false, true, false}
         });
 
-        Game game = new Game(input);
-
-        World actual = game.generateNextWorld();
+        World actual = input.getNextWorld();
 
         Assert.assertEquals(expected, actual);
     }
@@ -151,9 +137,7 @@ public class WorldClassTest {
                 new boolean[]{false, false, false}
         });
 
-        Game game = new Game(input);
-
-        World actual = game.generateNextWorld();
+        World actual = input.getNextWorld();
 
         Assert.assertEquals(expected, actual);
     }
