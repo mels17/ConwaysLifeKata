@@ -17,6 +17,27 @@ public class IntegratedTest {
 
         Assert.assertEquals(expected, actual);
     }
+    @Test
+    public void givenAnySizeDeadWorldReturnSameSizeDeadWorld() {
+        World expected = new World(new boolean[4][4]);
+
+        Game game = new Game(expected);
+
+        World actual = game.generateNextWorld();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void givenAnyRectangleDeadWorldReturnSameRectangleDeadWorld() {
+        World expected = new World(new boolean[15][4]);
+
+        Game game = new Game(expected);
+
+        World actual = game.generateNextWorld();
+
+        Assert.assertEquals(expected, actual);
+    }
 
     @Test
     public void givenUnderpopulatedLivingCellWithNoLivingNeighboursReturnDeadCell() {
@@ -135,4 +156,25 @@ public class IntegratedTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+//    @Test
+//    public void givenNormallyPopulatedDeadCellWithThreeLivingNeighboursReturnLivingCell() {
+//        World input = new World(new boolean[][]{
+//                new boolean[]{true,false, true, false},
+//                new boolean[]{true, false, false},
+//                new boolean[]{false, true, false}
+//        });
+//
+//        World expected = new World(new boolean[][]{
+//                new boolean[]{false, false, false},
+//                new boolean[]{true, true, true},
+//                new boolean[]{false, false, false}
+//        });
+//
+//        Game game = new Game(input);
+//
+//        World actual = game.generateNextWorld();
+//
+//        Assert.assertEquals(expected, actual);
+//    }
 }

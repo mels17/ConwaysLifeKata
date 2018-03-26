@@ -163,10 +163,10 @@ public class World {
     }
 
     public World getNextWorld() {
-        World nextWorld = new World(new boolean[3][3]);
+        World nextWorld = new World(new boolean [world.length][world.length == 0 ? 0: world[0].length] );
 
         for (int y = 0; y < world.length; y++) {
-            for (int x = 0; x < world.length; x++) {
+            for (int x = 0; x < world[y].length; x++) {
                 if (world[y][x] && (getNumberOfLivingNeighbours(x, y) == 2 || getNumberOfLivingNeighbours(x, y) == 3)) {
                     nextWorld.getWorld()[y][x] = true;
                 }
@@ -197,7 +197,7 @@ public class World {
         }
 
         for (int y = 0; y < world.length; y++) {
-            for (int x = 0; x < world.length; x++) {
+            for (int x = 0; x < world[y].length; x++) {
                 if (worldToCompare.getWorld()[y][x] != world[y][x]) {
                     return false;
                 }
