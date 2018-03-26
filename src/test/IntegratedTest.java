@@ -7,99 +7,53 @@ import org.junit.Test;
 
 public class IntegratedTest {
 
-//    @Test
-//    public void givenWorldGameRuns() {
-//        World world = new World();
-//
-//        Game game = new Game(world);
-//
-//        Assert.assertTrue(game.run());
-//    }
-
-//    @Test
-//    public void afterGameRunsCurrentGameWorldShouldBeDead() {
-//        World world = new World();
-//
-//        Game game = new Game(world);
-//
-//        World currentWorld = game.getCurrentWorld();
-//
-//        Assert.assertTrue(currentWorld.isDead());
-//    }
-
     @Test
-    public void givenWorldReturnNextWorld() {
-        World world = new World();
-
-        Game game = new Game(world);
-
-        World actual = game.generateNextWorld();
-
-        Assert.assertNotNull(actual);
-    }
-
-    @Test
-    public void givenCustomDeadWorldReturnNextWorld() {
-        World expected = new World(new boolean[][]{
-                new boolean[]{false, false, false},
-                new boolean[]{false, false, false},
-                new boolean[]{false, false, false}
-        });
+    public void givenDeadWorldReturnDeadWorld() {
+        World expected = new World(new boolean[3][3]);
 
         Game game = new Game(expected);
 
         World actual = game.generateNextWorld();
 
-        Assert.assertNotNull(actual);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void givenCenterLivingWorldReturnNextWorld() {
+    public void givenUnderpopulatedLivingCellWithNoLivingNeighboursReturnDeadCell() {
         World input = new World(new boolean[][]{
                 new boolean[]{false, false, false},
                 new boolean[]{false, true, false},
                 new boolean[]{false, false, false}
         });
 
-        World expected = new World(new boolean[][]{
-                new boolean[]{false, false, false},
-                new boolean[]{false, false, false},
-                new boolean[]{false, false, false}
-        });
+        World expected = new World(new boolean[3][3]);
 
         Game game = new Game(input);
 
         World actual = game.generateNextWorld();
 
-        Assert.assertNotNull(actual);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void givenCenterLivingWithOneLivingNeighboursWorldReturnNextWorld() {
+    public void givenUnderpopulatedLivingCellWithOneLivingNeighbourReturnDeadCell() {
         World input = new World(new boolean[][]{
                 new boolean[]{true, false, false},
                 new boolean[]{false, true, false},
                 new boolean[]{false, false, false}
         });
 
-        World expected = new World(new boolean[][]{
-                new boolean[]{false, false, false},
-                new boolean[]{false, false, false},
-                new boolean[]{false, false, false}
-        });
+        World expected = new World(new boolean[3][3]);
 
         Game game = new Game(input);
 
         World actual = game.generateNextWorld();
 
-        Assert.assertNotNull(actual);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void givenCenterLivingWithThreeLivingNeighboursWorldReturnNextWorld() {
+    public void givenNormallyPopulatedLivingCellWithThreeLivingNeighboursReturnLivingCell() {
         World input = new World(new boolean[][]{
                 new boolean[]{false, true, false},
                 new boolean[]{true, true, true},
@@ -116,12 +70,11 @@ public class IntegratedTest {
 
         World actual = game.generateNextWorld();
 
-        Assert.assertNotNull(actual);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void givenCenterLivingWithTwoLivingNeighboursWorldReturnNextWorld() {
+    public void givenNormallyPopulatedLivingCellWithTwoLivingNeighboursReturnLivingCell() {
         World input = new World(new boolean[][]{
                 new boolean[]{false, false, false},
                 new boolean[]{true, true, true},
@@ -138,12 +91,11 @@ public class IntegratedTest {
 
         World actual = game.generateNextWorld();
 
-        Assert.assertNotNull(actual);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void givenCenterLivingWithFourLivingNeighboursWorldReturnNextWorld() {
+    public void givenOverpopulatedLivingCellWithThreeLivingNeighboursReturnDeadCell() {
         World input = new World(new boolean[][]{
                 new boolean[]{false, true, false},
                 new boolean[]{true, true, true},
@@ -160,12 +112,11 @@ public class IntegratedTest {
 
         World actual = game.generateNextWorld();
 
-        Assert.assertNotNull(actual);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void givenCenterDeadWithThreeLivingNeighboursWorldReturnNextWorld() {
+    public void givenNormallyPopulatedDeadCellWithThreeLivingNeighboursReturnLivingCell() {
         World input = new World(new boolean[][]{
                 new boolean[]{false, true, false},
                 new boolean[]{true, false, false},
@@ -182,7 +133,6 @@ public class IntegratedTest {
 
         World actual = game.generateNextWorld();
 
-        Assert.assertNotNull(actual);
         Assert.assertEquals(expected, actual);
     }
 }

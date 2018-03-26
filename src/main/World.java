@@ -4,10 +4,6 @@ public class World {
 
     private boolean[][] world;
 
-    public World() {
-        this.world = new boolean[3][3];
-    }
-
     public World(boolean[][] world) {
         this.world = world;
     }
