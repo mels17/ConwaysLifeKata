@@ -185,7 +185,13 @@ public class World {
         return nextWorld;
     }
 
-    public boolean equals2(World worldToCompare) {
+    public boolean equals(Object obj) {
+        if (!(obj instanceof World)) {
+            return false;
+        }
+
+        World worldToCompare = (World) obj;
+
         if (worldToCompare.getWorld().length != world.length) {
             return false;
         }

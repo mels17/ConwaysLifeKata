@@ -51,7 +51,7 @@ public class IntegratedTest {
         World actual = game.generateNextWorld();
 
         Assert.assertNotNull(actual);
-        Assert.assertTrue(actual.equals2(expected));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -73,7 +73,7 @@ public class IntegratedTest {
         World actual = game.generateNextWorld();
 
         Assert.assertNotNull(actual);
-        Assert.assertTrue(actual.equals2(expected));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -95,7 +95,7 @@ public class IntegratedTest {
         World actual = game.generateNextWorld();
 
         Assert.assertNotNull(actual);
-        Assert.assertTrue(actual.equals2(expected));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -117,7 +117,7 @@ public class IntegratedTest {
         World actual = game.generateNextWorld();
 
         Assert.assertNotNull(actual);
-        Assert.assertTrue(actual.equals2(expected));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -139,7 +139,7 @@ public class IntegratedTest {
         World actual = game.generateNextWorld();
 
         Assert.assertNotNull(actual);
-        Assert.assertTrue(actual.equals2(expected));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -161,7 +161,7 @@ public class IntegratedTest {
         World actual = game.generateNextWorld();
 
         Assert.assertNotNull(actual);
-        Assert.assertTrue(actual.equals2(expected));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -183,6 +183,6 @@ public class IntegratedTest {
         World actual = game.generateNextWorld();
 
         Assert.assertNotNull(actual);
-        Assert.assertTrue(actual.equals2(expected));
+        Assert.assertEquals(expected, actual);
     }
 }
