@@ -142,6 +142,21 @@ public class WorldClassTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void givenNormallyPopulatedDeadCellWithThreeLivingNeighboursReturnLivingCell2() {
+        World input = new World(new boolean[][]{
+                new boolean[]{true, true, true},
+                new boolean[]{true, true, true},
+                new boolean[]{true, true, true}
+        });
+
+        World expected = new World(new boolean[3][3]);
+
+        World actual = input.getNextWorld();
+
+        Assert.assertEquals(expected, actual);
+    }
+
 //    @Test
 //    public void givenNormallyPopulatedDeadCellWithThreeLivingNeighboursReturnLivingCell() {
 //        World input = new World(new boolean[][]{
