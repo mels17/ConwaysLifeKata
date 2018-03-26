@@ -12,11 +12,27 @@ public class World {
         return world;
     }
 
+    private boolean isNorthOutOfBounds(int y){
+       return y < 0;
+    }
+
+    private boolean isEastOutOfBounds(int x, int y) {
+        return x > world[y].length - 1;
+    }
+
+    private boolean isSouthOutOfBounds(int y) {
+        return y > world.length - 1;
+    }
+
+    private boolean isWestOutOfBounds(int x) {
+        return x < 0;
+    }
+
     private boolean getNorth(int x, int y) {
         int newY = y - 1;
         int newX = x;
 
-        if (newY < 0) {
+        if (isNorthOutOfBounds(newY)) {
             return false;
         }
 
@@ -27,11 +43,11 @@ public class World {
         int newY = y - 1;
         int newX = x + 1;
 
-        if (newY < 0) {
+        if (isNorthOutOfBounds(newY)) {
             return false;
         }
 
-        if (newX > world[y].length - 1) {
+        if (isEastOutOfBounds(newX, newY)) {
             newX = 0;
         }
 
@@ -42,7 +58,7 @@ public class World {
         int newY = y;
         int newX = x + 1;
 
-        if (newX > world[y].length - 1) {
+        if (isEastOutOfBounds(newX, newY)) {
             newX = 0;
         }
 
@@ -53,11 +69,11 @@ public class World {
         int newY = y + 1;
         int newX = x + 1;
 
-        if (newY > world.length - 1) {
+        if (isSouthOutOfBounds(newY)) {
             return false;
         }
 
-        if (newX > world[y].length - 1) {
+        if (isEastOutOfBounds(newX, newY)) {
             newX = 0;
         }
 
@@ -68,7 +84,7 @@ public class World {
         int newY = y + 1;
         int newX = x;
 
-        if (newY > world.length - 1) {
+        if (isSouthOutOfBounds(newY)) {
             return false;
         }
 
@@ -79,11 +95,11 @@ public class World {
         int newY = y + 1;
         int newX = x - 1;
 
-        if (newY > world.length - 1) {
+        if (isSouthOutOfBounds(newY)) {
             return false;
         }
 
-        if (newX < 0) {
+        if (isWestOutOfBounds(newX)) {
             newX = world[y].length - 1;
         }
 
@@ -94,7 +110,7 @@ public class World {
         int newY = y;
         int newX = x - 1;
 
-        if (newX < 0) {
+        if (isWestOutOfBounds(newX)) {
             newX = world[y].length - 1;
         }
 
@@ -105,11 +121,11 @@ public class World {
         int newY = y - 1;
         int newX = x - 1;
 
-        if (newY < 0) {
+        if (isNorthOutOfBounds(newY)) {
             return false;
         }
 
-        if (newX < 0) {
+        if (isWestOutOfBounds(newX)) {
             newX = world[y].length - 1;
         }
 
