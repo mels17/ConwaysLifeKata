@@ -1,20 +1,36 @@
 package main;
 
+import java.util.Arrays;
+
 public class Game {
 
     private World currentWorld;
+    private Printer printer;
 
-    public Game(World world) {
+    public Game(World world, Printer printer) {
         this.currentWorld = world;
+        this.printer = printer;
     }
 
-//    public boolean run() {
-//        while(world is not dead) {
-//            world = generateNextWorld();
-//        }
-//    }
+    public World[] getNextWorlds(int numGenerations) {
+        World[] worlds = new World[numGenerations];
+        for (int i = 0; i < numGenerations; i++) {
+            World nextWorld = currentWorld.getNextWorld();
+            worlds[i] = nextWorld;
+            currentWorld = nextWorld;
+        }
 
-    public World generateNextWorld() {
-        return this.currentWorld.getNextWorld();
+        return worlds;
+    }
+
+    public void run(int numGenerations) {
+        Arrays.stream(getNextWorlds(numGenerations)).forEach(world -> {
+            try {
+                printer.print(world);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        });
     }
 }

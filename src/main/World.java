@@ -12,8 +12,8 @@ public class World {
         return world;
     }
 
-    private boolean isNorthOutOfBounds(int y){
-       return y < 0;
+    private boolean isNorthOutOfBounds(int y) {
+        return y < 0;
     }
 
     private boolean isEastOutOfBounds(int x, int y) {
@@ -179,7 +179,7 @@ public class World {
     }
 
     public World getNextWorld() {
-        World nextWorld = new World(new boolean [world.length][world.length == 0 ? 0: world[0].length] );
+        World nextWorld = new World(new boolean[world.length][world.length == 0 ? 0 : world[0].length]);
 
         for (int y = 0; y < world.length; y++) {
             for (int x = 0; x < world[y].length; x++) {
@@ -193,33 +193,6 @@ public class World {
 
             }
         }
-
         return nextWorld;
-    }
-
-    public boolean equals(Object obj) {
-        if (!(obj instanceof World)) {
-            return false;
-        }
-
-        World worldToCompare = (World) obj;
-
-        if (worldToCompare.getWorld().length != world.length) {
-            return false;
-        }
-
-        if (world.length > 0 && worldToCompare.getWorld()[0].length != world[0].length) {
-            return false;
-        }
-
-        for (int y = 0; y < world.length; y++) {
-            for (int x = 0; x < world[y].length; x++) {
-                if (worldToCompare.getWorld()[y][x] != world[y][x]) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
     }
 }
