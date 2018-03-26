@@ -10,26 +10,21 @@ public class WorldClassTest {
     public void givenDeadWorldReturnDeadWorld() {
         World expected = new World(new boolean[3][3]);
         World actual = expected.getNextWorld();
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected.getWorld(), actual.getWorld());
     }
 
     @Test
     public void givenAnySizeDeadWorldReturnSameSizeDeadWorld() {
         World expected = new World(new boolean[4][4]);
-
         World actual = expected.getNextWorld();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected.getWorld(), actual.getWorld());
     }
 
     @Test
     public void givenAnyRectangleDeadWorldReturnSameRectangleDeadWorld() {
         World expected = new World(new boolean[15][4]);
-
-
         World actual = expected.getNextWorld();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected.getWorld(), actual.getWorld());
     }
 
     @Test
@@ -41,11 +36,8 @@ public class WorldClassTest {
         });
 
         World expected = new World(new boolean[3][3]);
-
-
         World actual = input.getNextWorld();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected.getWorld(), actual.getWorld());
     }
 
     @Test
@@ -57,11 +49,8 @@ public class WorldClassTest {
         });
 
         World expected = new World(new boolean[3][3]);
-
-
         World actual = input.getNextWorld();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected.getWorld(), actual.getWorld());
     }
 
     @Test
@@ -77,11 +66,8 @@ public class WorldClassTest {
                 new boolean[]{true, true, true},
                 new boolean[]{true, true, true}
         });
-
-
         World actual = input.getNextWorld();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected.getWorld(), actual.getWorld());
     }
 
     @Test
@@ -97,11 +83,8 @@ public class WorldClassTest {
                 new boolean[]{true, true, true},
                 new boolean[]{true, true, true}
         });
-
-
         World actual = input.getNextWorld();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected.getWorld(), actual.getWorld());
     }
 
     @Test
@@ -119,8 +102,7 @@ public class WorldClassTest {
         });
 
         World actual = input.getNextWorld();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected.getWorld(), actual.getWorld());
     }
 
     @Test
@@ -137,6 +119,6 @@ public class WorldClassTest {
                 new boolean[]{false, false, false}
         });
         World actual = input.getNextWorld();
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected.getWorld(), actual.getWorld());
     }
 }

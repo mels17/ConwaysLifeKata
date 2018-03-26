@@ -193,32 +193,6 @@ public class World {
 
             }
         }
-
         return nextWorld;
-    }
-
-    public boolean equals(Object obj) {
-        if (!(obj instanceof World)) {
-            return false;
-        }
-
-        World worldToCompare = (World) obj;
-
-        if (worldToCompare.getWorld().length != world.length) {
-            return false;
-        }
-
-        if (world.length > 0 && worldToCompare.getWorld()[0].length != world[0].length) {
-            return false;
-        }
-
-        for (int y = 0; y < world.length; y++) {
-            for (int x = 0; x < world[y].length; x++) {
-                if (worldToCompare.getWorld()[y][x] != world[y][x]) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 }
