@@ -99,6 +99,28 @@ public class IntegratedTest {
     }
 
     @Test
+    public void givenCenterLivingWithThreeLivingNeighboursWorldReturnNextWorld() {
+        World input = new World(new boolean[][]{
+                new boolean[]{false, true, false},
+                new boolean[]{true, true, true},
+                new boolean[]{false, false, false}
+        });
+
+        World expected = new World(new boolean[][]{
+                new boolean[]{false, true, false},
+                new boolean[]{true, true, true},
+                new boolean[]{true, true, true}
+        });
+
+        Game game = new Game(input);
+
+        World actual = game.generateNextWorld();
+
+        Assert.assertNotNull(actual);
+        Assert.assertTrue(actual.equals2(expected));
+    }
+
+    @Test
     public void givenCenterLivingWithTwoLivingNeighboursWorldReturnNextWorld() {
         World input = new World(new boolean[][]{
                 new boolean[]{false, false, false},
@@ -107,9 +129,9 @@ public class IntegratedTest {
         });
 
         World expected = new World(new boolean[][]{
-                new boolean[]{false, false, false},
                 new boolean[]{true, true, true},
-                new boolean[]{false, false, false}
+                new boolean[]{true, true, true},
+                new boolean[]{true, true, true}
         });
 
         Game game = new Game(input);

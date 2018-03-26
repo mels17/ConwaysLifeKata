@@ -175,7 +175,7 @@ public class World {
                     nextWorld.getWorld()[y][x] = true;
                 }
 
-                if (!world[y][x] && (getNumberOfLivingNeighbours(x, y) == 3 )) {
+                if (!world[y][x] && (getNumberOfLivingNeighbours(x, y) == 3)) {
                     nextWorld.getWorld()[y][x] = true;
                 }
 
