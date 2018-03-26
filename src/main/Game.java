@@ -8,9 +8,11 @@ public class Game {
         this.currentWorld = world;
     }
 
-    public boolean run() {
-        return true;
-    }
+//    public boolean run() {
+//        while(world is not dead) {
+//            world = generateNextWorld();
+//        }
+//    }
 
     public World generateNextWorld() {
         return this.currentWorld.getNextWorld();

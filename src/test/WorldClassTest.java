@@ -5,7 +5,7 @@ import main.World;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class IntegratedTest {
+public class WorldClassTest {
 
     @Test
     public void givenDeadWorldReturnDeadWorld() {
@@ -17,6 +17,7 @@ public class IntegratedTest {
 
         Assert.assertEquals(expected, actual);
     }
+
     @Test
     public void givenAnySizeDeadWorldReturnSameSizeDeadWorld() {
         World expected = new World(new boolean[4][4]);
