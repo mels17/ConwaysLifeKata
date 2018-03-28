@@ -1,6 +1,6 @@
 package test;
 
-import main.Neighbour;
+import main.TwoDNeighbour;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class NeighbourClassTest {
                 new boolean[] { false, true, true},
         };
 
-        Neighbour neighbour = new Neighbour(world);
+        TwoDNeighbour neighbour = new TwoDNeighbour(world);
 
         Assert.assertEquals(3, neighbour.getNumberOfLivingNeighbours(0,0));
     }
@@ -30,7 +30,7 @@ public class NeighbourClassTest {
                 new boolean[] { false, false, false},
         };
 
-        Neighbour neighbour = new Neighbour(world);
+        TwoDNeighbour neighbour = new TwoDNeighbour(world);
 
         Assert.assertEquals(0, neighbour.getNumberOfLivingNeighbours(0,0));
     }

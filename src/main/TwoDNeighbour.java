@@ -1,18 +1,14 @@
 package main;
 
-public class Neighbour {
-
+public class TwoDNeighbour implements Neigbour {
     public boolean[][] world;
-
-    public final boolean DEAD = false;
-
 
     public final int WORLD_START_X = 0;
     public final int WORLD_START_Y = 0;
     public int worldEndX;
     public int worldEndY;
 
-    public Neighbour(boolean[][] world) {
+    public TwoDNeighbour(boolean[][] world) {
 
         this.world = world;
 
